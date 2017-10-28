@@ -1,0 +1,26 @@
+科学上网 
+1.修改host 
+  复制或者下载https://github.com/lennylxx/ipv6-hosts/blob/master/hosts 
+  复制到(Windows)C:\Windows\System32\drivers\etc\路径下覆盖原来的host文件，然后清空dns缓存，cmd运行 ipconfig /flushdns 。或者是直接ipv6.google.com试一下能不能访问。 
+2.ss(下载客户端配置一下即可) 
+想用可以用我的 
+3.或者免费的vpn练习题 
+
+github学生包
+git教程
+jdk 配置请自行查找
+jetbrains 
+  里面有java开发的IDE(IntelliJ IDEA)，用学校的邮箱可以申请免费的账号，学生包
+  
+  java学习： 
+书目推荐：《java核心技术卷Ⅰ》，《java编程思想》 
+先看一下基本内容，对应着java核心技术前3章，包括基础数据类型，变量，运算符，字符串，输入输出，流程控制，数组，这些部分的内容。遇到有疑惑不理解的地方多提出来交流。
+
+1.输出斐波拉契数列的前n项 
+2.计算输出10以内的数的阶乘 
+3.打印图形（输出等腰三角） 
+    * 
+  * * * 
+ * * * * * 
+* * * * * * * 
+4.输入一串数字经过冒泡排序之后输出。
