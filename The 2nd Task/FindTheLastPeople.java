@@ -1,8 +1,8 @@
-package for循环练习;
+package AndroidTeamTasks;
 
 import java.util.Scanner;
 
-public class _3
+public class FindTheLastPeople
 {
     public static void main(String[] args)
     {
