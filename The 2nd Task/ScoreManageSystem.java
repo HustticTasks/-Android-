@@ -1,4 +1,4 @@
-package Android组任务;
+package AndroidTeamTasks;
 
         import javax.swing.filechooser.FileSystemView;
         import java.io.File;
@@ -7,7 +7,7 @@ package Android组任务;
         import java.util.Scanner;
         import java.lang.String;
 
-public class Test
+public class ScoreManageSystem
 {
     public static void main(String[] args)
     {
