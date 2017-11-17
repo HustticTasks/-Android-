@@ -9,6 +9,8 @@ package AndroidTeamTasks;
 
 public class ScoreManageSystem
 {
+    Student[] arr = new Student[0];
+    String[] s = new String[0];
     public static void main(String[] args)
     {
         int length=0;
@@ -59,7 +61,8 @@ public class ScoreManageSystem
             System.out.println("\t\t\t\t\t\t   1.查询成绩");
             System.out.println("\t\t\t\t\t\t   2.修改信息");
             System.out.println("\t\t\t\t\t\t   3.保存全部学生信息到文件");
-            System.out.println("\t\t\t\t\t\t   4.退出系统");
+            System.out.println("\t\t\t\t\t\t   4.添加学生信息");
+            System.out.println("\t\t\t\t\t\t   5.退出系统");
             System.out.println("\t\t\t\t\t\t*******************\n");
 
             int n = in.nextInt();
@@ -169,6 +172,7 @@ public class ScoreManageSystem
                     A.store(str);
                     break;
                 case 4:
+                case 5:
                     break finish;
                 default:
                     System.out.println("无效输入，请重试.");
