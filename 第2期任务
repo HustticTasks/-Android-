@@ -1,0 +1,38 @@
+3#include "stdio.h"
+void del(int *str,int m,int lenth); 
+int main(int argc, char* argv[]) {
+int n;
+scanf("%d",&n);
+int i=0,j=-1,str[n];
+int total = 0;
+int m = n;
+while(j<m)
+{
+i++;
+j++;
+if(i==3)
+{
+del(str,j+1,m);
+total++;
+i=0;
+m--;
+}
+if(total == n-1)
+break;
+if(j == m)
+j=-1;
+}
+printf("%d",j);
+return 0;
+}
+
+void del(int *str,int m,int lenth)
+{
+int i =m;
+while(i<lenth)
+
+{
+str[i] = str[i+1];
+i++;
+}
+}
