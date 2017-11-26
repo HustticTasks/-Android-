@@ -1,3 +1,147 @@
+《c语言》表达式求值（中缀表达式转化为后缀）
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#define maxsize 50
+void trans(char str[],char exp[])
+{
+   struct
+   { char data[maxsize]; 
+     int top;            
+   }opr;                 
+    char ch;
+    int i=0,t=0;        
+    opr.top=-1;         
+    ch=str[i];i++;      
+    while (ch!='\0')    
+    {  switch(ch)       
+        {
+        case '(':
+        opr.top++;opr.data[opr.top]=ch; 
+        break;
+        case ')':
+        while (opr.data[opr.top]!='(')  
+         { exp[t]=opr.data[opr.top];    
+           opr.top--;
+           t++;
+         }
+         opr.top--;         
+          break;
+         case  '+':         
+         case  '-':
+         while (opr.top!=-1 &&opr.data[opr.top]!='(')
+          {      exp[t]=opr.data[opr.top];  
+                 opr.top--;
+                t++;
+          }
+          opr.top++;opr.data[opr.top]=ch;  
+          break;
+         case '*':
+         case '/':
+          while (opr.data[opr.top]=='*'||opr.data[opr.top]=='/'||opr.data[opr.top]=='^')
+          { exp[t]=opr.data[opr.top];  
+            opr.top--;
+            t++;
+          }
+           opr.top++;opr.data[opr.top]=ch;  
+             break;
+          case '^':                  
+          while (opr.data[opr.top]=='^')
+          { exp[t]=opr.data[opr.top];  
+            opr.top--;
+            t++;
+          }
+           opr.top++;opr.data[opr.top]=ch; 
+             break;
+          case ' ': break;              
+          default:
+           while(ch>='0'&& ch<='9'||ch=='.')  
+          { exp[t]=ch;t++;          
+            ch=str[i];i++;
+           }
+           i--;
+           exp[t]='#';t++;          
+        }
+        ch=str[i];i++;
+      }
+        while (opr.top!=-1)         
+        {  exp[t]=opr.data[opr.top];
+             t++;opr.top--;
+         }
+         exp[t]='\0';
+    }
+ float compvalue(char exp[])    
+     {
+         struct
+         {   float data[maxsize]; 
+              int top;             
+          } st;                   
+       float d,d2;double po;
+        char  ch;
+       int t=0,flag=1,i,count;                    
+         ch=exp[t];t++;
+        while (ch!='\0')          
+       {   switch(ch)
+           {
+              case '+':st.data[st.top-1]=st.data[st.top-1]+st.data[st.top];
+                   st.top--;break;
+              case '-':st.data[st.top-1]=st.data[st.top-1]-st.data[st.top];
+                   st.top--;break;
+              case '*':st.data[st.top-1]=st.data[st.top-1]*st.data[st.top];
+                   st.top--;break;
+              case '/':
+                  if(st.data[st.top]!=0)
+                       st.data[st.top-1]=st.data[st.top-1]/st.data[st.top];
+                   else
+             {    printf("\n除零错误！\n");
+                    exit(0);                    
+             }
+             st.top--;break;
+               case '^':
+                  po=pow(st.data[st.top-1],st.data[st.top]); st.data[st.top-1]=(float)po;
+                   st.top--;break;
+        default:
+              d=0;  flag=1; d2=0;                          
+            while(ch>='0'&&ch<='9'&&flag)          
+           {  d=10*d+ch-'0';
+              ch=exp[t];t++;
+              if(ch=='.')
+               flag=0;
+           }
+              if(flag==0)
+           {  ch=exp[t];t++;count=0;
+               while(ch>='0'&&ch<='9')         
+              {d2=10*d2+ch-'0';
+              ch=exp[t];t++;count++;
+              }
+           for(i=1;i<=count;i++)
+               d2=0.1*d2;
+           }
+            d+=d2;
+            st.top++;
+            st.data[st.top]=d;
+         }
+           ch=exp[t];t++;
+    }
+     return st.data[st.top];
+ }
+int main()
+ {
+ 	  int i;
+      char c,str[maxsize],exp[maxsize]; 
+      while((c=getchar())!='\n')
+        { i=0;
+         str[i]=c;
+         i++;
+		}
+      str[i]='\0';
+     trans(str,exp);
+    printf("the result is %g\n",compvalue(exp));
+}
+
+
+
+
 第6题
 #include "stdio.h"
 void del(int *str,int m,int lenth); 
