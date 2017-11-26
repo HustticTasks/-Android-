@@ -1,4 +1,5 @@
-3#include "stdio.h"
+第6题
+#include "stdio.h"
 void del(int *str,int m,int lenth); 
 int main(int argc, char* argv[]) {
 int n;
